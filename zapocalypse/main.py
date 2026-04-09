@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+import h3
 
 from supabase import Client
 
@@ -11,7 +12,7 @@ class HordeObservation(BaseModel):
     lat: int
     lng: int
 
-@app.post("/horde/update"):
+@app.post("/horde/update")
 async def update_horde(observation: HordeObservation):
     h3_cell = h3.latlng_to_h3(observation.lat, observation.lng, 9)
 
