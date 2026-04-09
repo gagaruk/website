@@ -13,5 +13,5 @@ class HordeObservation(BaseModel):
     lng: int
 
 @app.get("/")
-async def update_horde(observation: HordeObservation):
+async def index():
     return{"status":"test_success"}
