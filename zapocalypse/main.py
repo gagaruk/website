@@ -13,5 +13,5 @@ class HordeObservation(BaseModel):
     lng: int
 
 @app.get("/")
-async def index():
+def root():
     return{"status":"test_success"}
