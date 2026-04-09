@@ -12,10 +12,6 @@ class HordeObservation(BaseModel):
     lat: int
     lng: int
 
-@app.post("/horde/update")
+@app.get("/")
 async def update_horde(observation: HordeObservation):
-    h3_cell = h3.latlng_to_h3(observation.lat, observation.lng, 9)
-
-    return {"status": "success", "h3_index": h3_cell}
-
-
+    return{"status":"test_success"}
