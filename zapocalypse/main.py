@@ -43,11 +43,16 @@ class SpatialEntityModel(BaseModel):
     @model_validator(mode="before")
     @classmethod
     def int_to_hex_str(cls, values: dict):
-        return {
-            k: h3.int_to_str(v) if "h3" in k and isinstance(v, int) else v
-            for k, v in values.items()
-        }
-
+        processed={}
+        if "h3" in k:
+            for k, v_raw in values.items():
+                v_processed= h3.int_to_str(v_raw) if isinstance(v_raw, int) else v_raw
+                if not(len(processed)==15 and len(v_processed)==16):
+                    raise ValueError(
+                        f"invalid H3 index in field {k}"
+                    )
+                processed[k] = v_processed
+        return processed
 
 class HordeModel(SpatialEntityModel):
     horde_id:      int | None = None
