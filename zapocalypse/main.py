@@ -123,8 +123,7 @@ class EntityManager:
             "est_count":     est_count,
             "h3_res9":       geo["h3_primary"],   # updated column name
             "parent_sector": geo["h3_parent"],
-            "coords":        f"POINT({lng} {lat})",
-            "timestamp":     datetime.now(timezone.utc).isoformat(),  # tz-aware
+            "coords":        f"POINT({lng} {lat})"
         }
         return supabase.table("hordes").insert(payload).execute()
 
