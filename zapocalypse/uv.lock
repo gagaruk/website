@@ -337,18 +337,6 @@ wheels = [
 ]
 
 [[package]]
-name = "dockerfile"
-version = "3.4.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/de/c9/2cdd6060f8f476c41a1638a9e1b28923fb0d9c075dffc41b13137199e207/dockerfile-3.4.0.tar.gz", hash = "sha256:238bb950985c55a525daef8bbfe994a0230aa0978c419f4caa4d9ce0a37343f1", size = 7729, upload-time = "2025-01-04T20:40:55.952Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/a1/2a/553b099124685f00c4cc06cda6496db02e43ca51d7b7b5dc68814c6b48be/dockerfile-3.4.0-cp39-abi3-macosx_13_0_x86_64.whl", hash = "sha256:ed33446a76007cbb3f28c247f189cc06db34667d4f59a398a5c44912d7c13f36", size = 1740573, upload-time = "2025-01-04T20:49:37.128Z" },
-    { url = "https://files.pythonhosted.org/packages/8e/bf/246a02d803318131d809b13d285244e4047def667df906ad123e7d8405b2/dockerfile-3.4.0-cp39-abi3-macosx_14_0_arm64.whl", hash = "sha256:a4549d4f038483c25906d4fec56bb6ffe82ae26e0f80a15f2c0fedbb50712053", size = 1639801, upload-time = "2025-01-04T20:49:41.173Z" },
-    { url = "https://files.pythonhosted.org/packages/0b/35/2cb27f4a0a68bacde1bdbc2cd4ba8d0d5be95fca04010c7bd83caa96cd20/dockerfile-3.4.0-cp39-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:b95102bd82e6f67c836186b51c13114aa586a20e8cb6441bde24d4070542009d", size = 1663209, upload-time = "2025-01-04T20:49:42.667Z" },
-    { url = "https://files.pythonhosted.org/packages/81/5d/3d3b83501e62f6f319db884113bab89fc02b6c29ca7004049a8144eec01e/dockerfile-3.4.0-cp39-abi3-win_amd64.whl", hash = "sha256:30202187f1885f99ac839fd41ca8150b2fd0a66fac12db0166361d0c4622e71a", size = 1809411, upload-time = "2025-01-04T20:49:44.239Z" },
-]
-
-[[package]]
 name = "exceptiongroup"
 version = "1.3.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1209,6 +1197,20 @@ wheels = [
 ]
 
 [[package]]
+name = "pydantic-settings"
+version = "2.13.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pydantic" },
+    { name = "python-dotenv" },
+    { name = "typing-inspection" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/52/6d/fffca34caecc4a3f97bda81b2098da5e8ab7efc9a66e819074a11955d87e/pydantic_settings-2.13.1.tar.gz", hash = "sha256:b4c11847b15237fb0171e1462bf540e294affb9b86db4d9aa5c01730bdbe4025", size = 223826, upload-time = "2026-02-19T13:45:08.055Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/00/4b/ccc026168948fec4f7555b9164c724cf4125eac006e176541483d2c959be/pydantic_settings-2.13.1-py3-none-any.whl", hash = "sha256:d56fd801823dbeae7f0975e1f8c8e25c258eb75d278ea7abb5d9cebb01b56237", size = 58929, upload-time = "2026-02-19T13:45:06.034Z" },
+]
+
+[[package]]
 name = "pygments"
 version = "2.20.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1383,6 +1385,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz", hash = "sha256:37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3", size = 342432, upload-time = "2024-03-01T18:36:20.211Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl", hash = "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427", size = 229892, upload-time = "2024-03-01T18:36:18.57Z" },
+]
+
+[[package]]
+name = "python-dotenv"
+version = "1.2.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/82/ed/0301aeeac3e5353ef3d94b6ec08bbcabd04a72018415dcb29e588514bba8/python_dotenv-1.2.2.tar.gz", hash = "sha256:2c371a91fbd7ba082c2c1dc1f8bf89ca22564a087c2c287cd9b662adde799cf3", size = 50135, upload-time = "2026-03-01T16:00:26.196Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0b/d7/1959b9648791274998a9c3526f6d0ec8fd2233e4d4acce81bbae76b44b2a/python_dotenv-1.2.2-py3-none-any.whl", hash = "sha256:1d8214789a24de455a8b8bd8ae6fe3c6b69a5e3d64aa8a8e5d68e694bbcb285a", size = 22101, upload-time = "2026-03-01T16:00:25.09Z" },
 ]
 
 [[package]]
@@ -1789,12 +1800,12 @@ name = "zapocalypse"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
-    { name = "dockerfile" },
     { name = "fastapi" },
     { name = "h3" },
     { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
     { name = "numpy", version = "2.4.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "pydantic" },
+    { name = "pydantic-settings" },
     { name = "requests" },
     { name = "supabase" },
     { name = "uvicorn" },
@@ -1802,11 +1813,11 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "dockerfile", specifier = ">=3.4.0" },
     { name = "fastapi", specifier = ">=0.135.3" },
     { name = "h3", specifier = ">=4.4.2" },
     { name = "numpy", specifier = ">=2.2.6" },
     { name = "pydantic", specifier = ">=2.12.5" },
+    { name = "pydantic-settings", specifier = ">=2.13.1" },
     { name = "requests", specifier = ">=2.33.1" },
     { name = "supabase", specifier = ">=2.28.3" },
     { name = "uvicorn", specifier = ">=0.44.0" },
