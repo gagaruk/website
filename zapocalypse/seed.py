@@ -126,7 +126,7 @@ def seed_world() -> None:
     print("World seeded.")
  
  
-def seed_hordes() -> None:
+def seed_hordes(log_count) -> None:
     """
     Horde size bands (from spreadsheet):
       80%  normal    :   50 –  5,000
@@ -158,7 +158,7 @@ def seed_hordes() -> None:
         # We build the list in chronological order so inserts go oldest-first,
         # ensuring the trigger always advances current_t forward.
         steps = []
-        for step in range(10):
+        for step in range(log_count):
             # Random walk: each step nudges from the previous position
             lng += random.uniform(-0.001, 0.001)
             lat += random.uniform(-0.001, 0.001)
@@ -192,8 +192,13 @@ def verify_seeding() -> None:
         print(f"  {table:<15} {result.count:>7} rows")
     print("──────────────────────────────────────────")
  
+def reset_horde_counter(new_start_value: int):
+    response = supabase.rpc("set_horde_sequence", {"start_val": new_start_value}).execute()
+    return response
+
  
 if __name__ == "__main__":
     seed_world()
-    seed_hordes()
+    seed_hordes(log_count=10)
     verify_seeding()
+    reset_horde_counter(new_start_value=10)

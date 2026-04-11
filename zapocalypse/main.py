@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Query
 from pydantic import BaseModel, ConfigDict, model_validator, StringConstraints
-from datetime import datetime, timezone
+from datetime import datetime
 import h3
 from supabase import create_client, Client
 from typing import List, Annotated
@@ -50,11 +50,11 @@ class SpatialEntityModel(BaseModel):
 
 
 class HordeModel(SpatialEntityModel):
-    horde_id:      int
+    horde_id:      int | None = None
     est_count:     int
     h3_res9:       str          # updated: was h3_res8
     parent_sector: str
-    timestamp:     datetime
+    timestamp:     datetime | None = None
 
 
 class SectorModel(SpatialEntityModel):
@@ -116,15 +116,17 @@ class EntityManager:
         return supabase.table("resources").insert(payload).execute()
 
     @staticmethod
-    def create_horde(horde_id: int, lat: float, lng: float, est_count: int):
+    def create_horde(horde_id: int | None, lat: float, lng: float, est_count: int):
         geo = H3Manager.latlng_to_hierarchy(lat, lng, h3_resolutions["horde"])
         payload = {
-            "horde_id":      horde_id,
             "est_count":     est_count,
             "h3_res9":       geo["h3_primary"],   # updated column name
             "parent_sector": geo["h3_parent"],
             "coords":        f"POINT({lng} {lat})"
         }
+        if horde_id is not None:
+            payload["horde_id"] = horde_id
+
         return supabase.table("hordes").insert(payload).execute()
 
 
